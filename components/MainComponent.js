@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Directory from './DirectoryComponent';
 import Constants from 'expo-constants';
-import { View, PLatform } from 'react-native';
+import { View, Platform } from 'react-native';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createAppContainer } from 'react-navigation';
 
