@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Directory from './DirectoryComponent';
 import CampsiteInfo from './CampsiteInfoComponent';
 import Constants from 'expo-constants';
-import { View, Platform } from 'react-native';
+import { View, Platform, SafeAreaView } from 'react-native';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createAppContainer } from 'react-navigation';
 
@@ -33,13 +33,13 @@ class Main extends Component {
 
     render() {
         return (
-            <View
+            <SafeAreaView
                 style={{
                     flex: 1,
                     paddingTop: Platform.OS === 'ios' ? 0 : Constants.statusBarHeight 
                 }}>
                 <AppNavigator />
-            </View>
+            </SafeAreaView>
         );
     }
 }

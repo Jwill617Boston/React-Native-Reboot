@@ -21,7 +21,7 @@ class Directory extends Component {
         const renderDirectoryItem = ({item}) => {
             return (
                 <ListItem 
-                tite={item.name}
+                title={item.name}
                 subtitle={item.description}
                 onPress={() => navigate('CampsiteInfo', { campsiteId: item.id})}
                 leftAvatar={{source: require('./images/react-lake.jpg')}}
