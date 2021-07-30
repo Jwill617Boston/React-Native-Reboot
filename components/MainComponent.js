@@ -4,7 +4,7 @@ import Directory from './DirectoryComponent';
 import CampsiteInfo from './CampsiteInfoComponent';
 import About from './AboutComponent';
 import Contact from './ContactComponent';
-import { View, Platform } from 'react-native';
+import { View, Platform, SafeAreaView } from 'react-native';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createDrawerNavigator } from 'react-navigation-drawer';
 import { createAppContainer } from 'react-navigation';
@@ -96,12 +96,12 @@ const AppNavigator = createAppContainer(MainNavigator)
 class Main extends Component {
     render() {
         return (
-            <View style={{
+            <SafeAreaView style={{
                 flex: 1,
                
             }}>
                 <AppNavigator />
-            </View>
+            </SafeAreaView>
         );
     }
 }

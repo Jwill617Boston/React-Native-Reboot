@@ -10,14 +10,16 @@ import { Card } from 'react-native-elements';
     render() {
         return (
             <ScrollView>
-                <Card title={"Community Partners"} wrapperStyle={{margin: 20}}>          
-                    <Text style={{marginBottom: 10}}>
+                <Card title={"Contact Infomation"} wrapperStyle={{margin: 20}}>          
+                    <Text>
                     1 Nucamp Way
-                    Seattle, WA 98001
-                    U.S.A.
-                    Phone: 1-206-555-1234
-                    Email: campsites@nucamp.co
                     </Text>
+                    <Text>Seattle, WA 98001</Text>
+                    <Text style={{marginBottom: 10}}>U.S.A.</Text>
+                    <Text>
+                    Phone: 1-206-555-1234                    
+                    </Text>
+                    <Text>Email: campsites@nucamp.co</Text>
                 </Card>          
             </ScrollView>
         )
