@@ -10,6 +10,7 @@ import { Card } from 'react-native-elements';
     render() {
         return (
             <ScrollView>
+                <Animatable.View animation='fadeInDown' duration={2000} delay={1000}>
                 <Card title={"Contact Infomation"} wrapperStyle={{margin: 20}}>          
                     <Text>
                     1 Nucamp Way
@@ -20,7 +21,8 @@ import { Card } from 'react-native-elements';
                     Phone: 1-206-555-1234                    
                     </Text>
                     <Text>Email: campsites@nucamp.co</Text>
-                </Card>          
+                </Card> 
+                </Animatable.View>         
             </ScrollView>
         )
     }
