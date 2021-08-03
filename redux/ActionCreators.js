@@ -1,6 +1,74 @@
 import * as ActionTypes from './ActionTypes';
 import { baseUrl } from '../shared/baseUrl';
 
+export const fetchPromotions = () => dispatch => {
+    
+    dispatch(promotionsLoading());
+
+    return fetch(baseUrl + 'promotions')
+        .then(response => {
+                if (response.ok) {
+                    return response;
+                } else {
+                    const error = new Error(`Error ${response.status}: ${response.statusText}`);
+                    error.response = response;
+                    throw error;
+                }
+            },
+            error => {
+                const errMess = new Error(error.message);
+                throw errMess;
+            })
+        .then(response => response.json())
+        .then(promotions => dispatch(addPromotions(promotions)))
+        .catch(error => dispatch(promotionsFailed(error.message)));
+};
+
+export const fetchPartners = () => dispatch => {
+    
+    dispatch(partnersLoading());
+    return fetch(baseUrl + 'partners')
+        .then(response => {
+                if (response.ok) {
+                    return response;
+                } else {
+                    const error = new Error(`Error ${response.status}: ${response.statusText}`);
+                    error.response = response;
+                    throw error;
+                }
+            },
+            error => {
+                const errMess = new Error(error.message);
+                throw errMess;
+            })
+        .then(response => response.json())
+        .then(partners => dispatch(addPartners(partners)))
+        .catch(error => dispatch(partnersFailed(error.message)));
+};
+
+export const fetchCampsites = () => dispatch => {
+
+    dispatch(campsitesLoading());
+
+    return fetch(baseUrl + 'campsites')
+        .then(response => {
+                if (response.ok) {
+                    return response;
+                } else {
+                    const error = new Error(`Error ${response.status}: ${response.statusText}`);
+                    error.response = response;
+                    throw error;
+                }
+            },
+            error => {
+                const errMess = new Error(error.message);
+                throw errMess;
+            })
+        .then(response => response.json())
+        .then(campsites => dispatch(addCampsites(campsites)))
+        .catch(error => dispatch(campsitesFailed(error.message)));
+};
+
 export const fetchComments = () => dispatch => {
     return fetch(baseUrl + 'comments')
         .then(response => {
@@ -31,28 +99,6 @@ export const addComments = comments => ({
     payload: comments
 });
 
-export const fetchCampsites = () => dispatch => {
-
-    dispatch(campsitesLoading());
-
-    return fetch(baseUrl + 'campsites')
-        .then(response => {
-                if (response.ok) {
-                    return response;
-                } else {
-                    const error = new Error(`Error ${response.status}: ${response.statusText}`);
-                    error.response = response;
-                    throw error;
-                }
-            },
-            error => {
-                const errMess = new Error(error.message);
-                throw errMess;
-            })
-        .then(response => response.json())
-        .then(campsites => dispatch(addCampsites(campsites)))
-        .catch(error => dispatch(campsitesFailed(error.message)));
-};
 
 export const campsitesLoading = () => ({
     type: ActionTypes.CAMPSITES_LOADING
@@ -68,28 +114,7 @@ export const addCampsites = campsites => ({
     payload: campsites
 });
 
-export const fetchPromotions = () => dispatch => {
-    
-    dispatch(promotionsLoading());
 
-    return fetch(baseUrl + 'promotions')
-        .then(response => {
-                if (response.ok) {
-                    return response;
-                } else {
-                    const error = new Error(`Error ${response.status}: ${response.statusText}`);
-                    error.response = response;
-                    throw error;
-                }
-            },
-            error => {
-                const errMess = new Error(error.message);
-                throw errMess;
-            })
-        .then(response => response.json())
-        .then(promotions => dispatch(addPromotions(promotions)))
-        .catch(error => dispatch(promotionsFailed(error.message)));
-};
 
 export const promotionsLoading = () => ({
     type: ActionTypes.PROMOTIONS_LOADING
@@ -105,27 +130,7 @@ export const addPromotions = promotions => ({
     payload: promotions
 });
 
-export const fetchPartners = () => dispatch => {
-    
-    dispatch(partnersLoading());
-    return fetch(baseUrl + 'partners')
-        .then(response => {
-                if (response.ok) {
-                    return response;
-                } else {
-                    const error = new Error(`Error ${response.status}: ${response.statusText}`);
-                    error.response = response;
-                    throw error;
-                }
-            },
-            error => {
-                const errMess = new Error(error.message);
-                throw errMess;
-            })
-        .then(response => response.json())
-        .then(partners => dispatch(addPartners(partners)))
-        .catch(error => dispatch(partnersFailed(error.message)));
-};
+
 
 export const partnersLoading = () => ({
     type: ActionTypes.PARTNERS_LOADING
