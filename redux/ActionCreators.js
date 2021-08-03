@@ -108,7 +108,6 @@ export const addPromotions = promotions => ({
 export const fetchPartners = () => dispatch => {
     
     dispatch(partnersLoading());
-
     return fetch(baseUrl + 'partners')
         .then(response => {
                 if (response.ok) {
@@ -151,4 +150,26 @@ export const postFavorite = campsiteId => dispatch => {
 export const addFavorite = campsiteId => ({
     type: ActionTypes.ADD_FAVORITE,
     payload: campsiteId
+});
+
+export const postComment = (campsiteId, rating, author, text) => dispatch => {
+    const newComment = {
+        campsiteId,
+        rating,
+        author,
+        text, 
+        date: n         
+    };  
+
+    const d = new Date();
+    const n = d.toISOString();
+
+    setTimeout(() => {
+        dispatch(addComment(newComment));
+    }, 2000);
+}
+
+export const addComment = comment => ({
+    type: ActionTypes.ADD_COMMENT,
+    payload: comment
 });
