@@ -162,12 +162,10 @@ export const postComment = (campsiteId, rating, author, text) => dispatch => {
         campsiteId,
         rating,
         author,
-        text, 
-        date: n         
-    };  
+        text
+    };
 
-    const d = new Date();
-    const n = d.toISOString();
+    newComment.date = new Date().toISOString();
 
     setTimeout(() => {
         dispatch(addComment(newComment));
