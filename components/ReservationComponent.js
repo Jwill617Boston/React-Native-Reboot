@@ -25,18 +25,20 @@ class Reservation extends Component {
 
     handleReservation() {
         console.log(JSON.stringify(this.state));
+        const message = `Number of Campers: ${this.state.campers},
+                        \nHike In?: ${this.state.hikeIn} 
+                        \nDate: ${this.state.date.toLocaleDateString("en-US")}`;
         Alert.alert(
            "Begain Search?",
-           `Number of Campers: ${this.state.campers},
-            Hike In?: ${this.state.hikeIn} 
-            Date: ${this.state.date.toLocaleDateString("en-US")}`,
+           message,
            [
               {
                  text: "Cancel",
                  onPress: () => {
-                    console.log("Cancel Pressed");
+                    console.log("Reservation Search Canceled");
                     this.resetForm();
                  },
+                 style: "cancel",
               },
               {
                  text: "OK",
@@ -47,7 +49,8 @@ class Reservation extends Component {
                     this.resetForm();
                  },
               },
-           ]
+           ],
+           { cancelable: false }
         );
     }
 
