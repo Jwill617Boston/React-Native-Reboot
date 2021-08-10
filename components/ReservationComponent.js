@@ -26,25 +26,29 @@ class Reservation extends Component {
     handleReservation() {
         console.log(JSON.stringify(this.state));
         Alert.alert(
-            'Begain Search?',
-                    `Number of Campers: ${this.state.campers}
-                     Hike In? ${this.state.hikeIn} 
-                     Date: ${this.state.date.toLocaleDateString('en-US')}`,
-                    [
-                        {
-                            text: 'Cancel',                            
-                            onPress: () => {console.log('Cancel Pressed');
-                            this.resetForm()}
-                        },
-                        {
-                            text: 'OK',
-                             onPress: () => {
-                        this.presentLocalNotification(this.state.date.toLocaleDateString('en-US'));
-                        this.resetForm();
-                        }
-                    ],
-                    { cancelable: false }
-        )
+           "Begain Search?",
+           `Number of Campers: ${this.state.campers},
+            Hike In?: ${this.state.hikeIn} 
+            Date: ${this.state.date.toLocaleDateString("en-US")}`,
+           [
+              {
+                 text: "Cancel",
+                 onPress: () => {
+                    console.log("Cancel Pressed");
+                    this.resetForm();
+                 },
+              },
+              {
+                 text: "OK",
+                 onPress: () => {
+                    this.presentLocalNotification(
+                       this.state.date.toLocaleDateString("en-US")
+                    );
+                    this.resetForm();
+                 },
+              },
+           ]
+        );
     }
 
     resetForm() {
