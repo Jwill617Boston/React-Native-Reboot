@@ -353,6 +353,7 @@ class Main extends Component {
       this.props.fetchComments();
       this.props.fetchPromotions();
       this.props.fetchPartners();
+      this.showNetInfo();
    }
 
    async showNetInfo() {
