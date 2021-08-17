@@ -353,7 +353,9 @@ class Main extends Component {
       this.props.fetchComments();
       this.props.fetchPromotions();
       this.props.fetchPartners();
+   }
 
+   async showNetInfo() {
       NetInfo.fetch().then((connectionInfo) => {
          Platform.OS === "ios"
             ? Alert.alert(
